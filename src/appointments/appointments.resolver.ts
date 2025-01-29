@@ -33,4 +33,11 @@ export class AppointmentsResolver {
   ): Promise<Appointment> {
     return this.appointmentsService.updateAppointment(updateAppointmentInput);
   }
+
+  @Mutation(() => Boolean)
+  async deleteAppointment(
+    @Args('id', { type: () => Number }) id: number,
+  ): Promise<boolean> {
+    return this.appointmentsService.deleteAppointment(id);
+  }
 }

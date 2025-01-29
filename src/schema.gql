@@ -36,6 +36,7 @@ type Query {
 type Mutation {
   createAppointment(createAppointmentInput: CreateAppointmentInput!): Appointment!
   updateAppointment(updateAppointmentInput: UpdateAppointmentInput!): Appointment!
+  deleteAppointment(id: Float!): Boolean!
   createService(createServiceInput: CreateServiceInput!): Service!
   createSalon(createSalonInput: CreateSalonInput!): Salon!
 }

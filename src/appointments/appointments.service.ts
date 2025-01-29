@@ -135,4 +135,17 @@ export class AppointmentsService {
 
     return this.appointmentsRepository.save(appointment);
   }
+
+  async deleteAppointment(id: number): Promise<boolean> {
+    const appointment = await this.appointmentsRepository.findOne({
+      where: { id },
+    });
+
+    if (!appointment) {
+      throw new NotFoundException(`Appointment with ID ${id} not found`);
+    }
+
+    await this.appointmentsRepository.remove(appointment);
+    return true;
+  }
 }

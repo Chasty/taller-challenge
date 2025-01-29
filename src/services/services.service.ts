@@ -63,4 +63,10 @@ export class ServicesService {
 
     return await this.servicesRepository.save(service);
   }
+
+  async findAll(): Promise<Service[]> {
+    return this.servicesRepository.find({
+      relations: ['salon'],
+    });
+  }
 }

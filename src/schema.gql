@@ -30,6 +30,7 @@ scalar DateTime
 type Query {
   appointments: [Appointment!]!
   appointment(id: Float!): Appointment!
+  services: [Service!]!
   getSalons: [Salon!]!
 }
 

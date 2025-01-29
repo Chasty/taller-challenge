@@ -978,10 +978,12 @@
   dependencies:
     tslib "2.8.1"
 
-"@nestjs/typeorm@^11.0.0":
-  version "11.0.0"
-  resolved "https://registry.yarnpkg.com/@nestjs/typeorm/-/typeorm-11.0.0.tgz#b0f45d6902396db89e0ac1f4e738c2ff3407b794"
-  integrity sha512-SOeUQl70Lb2OfhGkvnh4KXWlsd+zA08RuuQgT7kKbzivngxzSo1Oc7Usu5VxCxACQC9wc2l9esOHILSJeK7rJA==
+"@nestjs/typeorm@^10.0.0":
+  version "10.0.2"
+  resolved "https://registry.yarnpkg.com/@nestjs/typeorm/-/typeorm-10.0.2.tgz#25e3ec3c9a127b085c06fd7ea25f8690dba145c2"
+  integrity sha512-H738bJyydK4SQkRCTeh1aFBxoO1E9xdL/HaLGThwrqN95os5mEyAtK7BLADOS+vldP4jDZ2VQPLj4epWwRqCeQ==
+  dependencies:
+    uuid "9.0.1"
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -1348,6 +1350,11 @@
   integrity sha512-6c2ogktZ06tr2ENoZivgm7YnprnhYE4ZoXGMY+oA7IuAf17M8FWvujXZGmxLv8y0PTyts4x5A+erSwVUFA8XSg==
   dependencies:
     "@types/superagent" "*"
+
+"@types/validator@^13.11.8":
+  version "13.12.2"
+  resolved "https://registry.yarnpkg.com/@types/validator/-/validator-13.12.2.tgz#760329e756e18a4aab82fc502b51ebdfebbe49f5"
+  integrity sha512-6SlHBzUW8Jhf3liqrGGXyTJSIFe4nqlJ5A5KaMZ2l/vbM3Wh3KSybots/wfWVzNLK4D1NZluDlSQIbIEPx6oyA==
 
 "@types/yargs-parser@*":
   version "21.0.3"
@@ -2067,6 +2074,15 @@ cjs-module-lexer@^1.0.0:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/cjs-module-lexer/-/cjs-module-lexer-1.4.1.tgz#707413784dbb3a72aa11c2f2b042a0bef4004170"
   integrity sha512-cuSVIHi9/9E/+821Qjdvngor+xpnlwnuwIyZOaLmHBVdXL+gP+I6QQB9VkO7RI77YIcTV+S1W9AreJ5eN63JBA==
+
+class-validator@^0.14.1:
+  version "0.14.1"
+  resolved "https://registry.yarnpkg.com/class-validator/-/class-validator-0.14.1.tgz#ff2411ed8134e9d76acfeb14872884448be98110"
+  integrity sha512-2VEG9JICxIqTpoK1eMzZqaV+u/EiwEJkMGzTrZf6sU/fwsnOITVgYJ8yojSy6CaXtO9V0Cc6ZQZ8h8m4UBuLwQ==
+  dependencies:
+    "@types/validator" "^13.11.8"
+    libphonenumber-js "^1.10.53"
+    validator "^13.9.0"
 
 cli-cursor@^3.1.0:
   version "3.1.0"
@@ -3881,6 +3897,11 @@ levn@^0.4.1:
     prelude-ls "^1.2.1"
     type-check "~0.4.0"
 
+libphonenumber-js@^1.10.53:
+  version "1.11.18"
+  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.11.18.tgz#0ce5188a76487fae01afdf318255783cde36501e"
+  integrity sha512-okMm/MCoFrm1vByeVFLBdkFIXLSHy/AIK2AEGgY3eoicfWZeOZqv3GfhtQgICkzs/tqorAMm3a4GBg5qNCrqzg==
+
 lines-and-columns@^1.1.6:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.2.4.tgz#eca284f75d2965079309dc0ad9255abb2ebc1632"
@@ -4435,7 +4456,7 @@ pg-types@^2.1.0:
     postgres-date "~1.0.4"
     postgres-interval "^1.1.0"
 
-pg@^8.13.1:
+pg@^8.11.0:
   version "8.13.1"
   resolved "https://registry.yarnpkg.com/pg/-/pg-8.13.1.tgz#6498d8b0a87ff76c2df7a32160309d3168c0c080"
   integrity sha512-OUir1A0rPNZlX//c7ksiu7crsGZTKSOXJPgtNiHGIlC9H0lO+NC6ZDYksSgBYY/thSWhnSRBv8w1lieNNGATNQ==
@@ -5345,7 +5366,7 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==
 
-typeorm@^0.3.20:
+typeorm@^0.3.0:
   version "0.3.20"
   resolved "https://registry.yarnpkg.com/typeorm/-/typeorm-0.3.20.tgz#4b61d737c6fed4e9f63006f88d58a5e54816b7ab"
   integrity sha512-sJ0T08dV5eoZroaq9uPKBoNcGslHBR4E4y+EBHs//SiGbblGe7IeduP/IH4ddCcj0qp3PHwDwGnuvqEAnKlq/Q==
@@ -5428,7 +5449,7 @@ utils-merge@1.0.1:
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==
 
-uuid@^9.0.0:
+uuid@9.0.1, uuid@^9.0.0:
   version "9.0.1"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-9.0.1.tgz#e188d4c8853cc722220392c424cd637f32293f30"
   integrity sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==
@@ -5446,6 +5467,11 @@ v8-to-istanbul@^9.0.1:
     "@jridgewell/trace-mapping" "^0.3.12"
     "@types/istanbul-lib-coverage" "^2.0.1"
     convert-source-map "^2.0.0"
+
+validator@^13.9.0:
+  version "13.12.0"
+  resolved "https://registry.yarnpkg.com/validator/-/validator-13.12.0.tgz#7d78e76ba85504da3fee4fd1922b385914d4b35f"
+  integrity sha512-c1Q0mCiPlgdTVVVIJIrBuxNicYE+t/7oKeI9MWLj3fh/uq2Pxh/3eeWbVZ4OcGW1TUf53At0njHw5SMdA3tmMg==
 
 value-or-promise@^1.0.12:
   version "1.0.12"

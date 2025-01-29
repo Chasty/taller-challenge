@@ -5,7 +5,7 @@
 type Salon {
   id: ID!
   name: String!
-  description: String
+  location: String!
 }
 
 type Appointment {
@@ -27,6 +27,7 @@ type Query {
 
 type Mutation {
   createAppointment(createAppointmentInput: CreateAppointmentInput!): Appointment!
+  createSalon(createSalonInput: CreateSalonInput!): Salon!
 }
 
 input CreateAppointmentInput {
@@ -34,4 +35,10 @@ input CreateAppointmentInput {
   serviceName: String!
   appointmentTime: DateTime!
   salonId: Float!
+}
+
+input CreateSalonInput {
+  name: String!
+  location: String!
+  serviceIds: [Int!]
 }

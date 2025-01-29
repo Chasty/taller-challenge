@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Appointment } from './entities/appointment.entity';
 import { SalonsService } from '../salons/salons.service';
-import { ServicesService } from 'src/services/services.service';
+import { ServicesService } from '../services/services.service';
 
 import { IsInt, IsString, IsDateString } from 'class-validator';
 import { CreateAppointmentInput } from './dto/create-appointment.input';

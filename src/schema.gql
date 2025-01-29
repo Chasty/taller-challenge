@@ -3,19 +3,19 @@
 # ------------------------------------------------------
 
 type Salon {
-  id: ID!
+  id: Float!
   name: String!
   location: String!
 }
 
 type Service {
-  id: ID!
+  id: Float!
   name: String!
   price: Float!
 }
 
 type Appointment {
-  id: ID!
+  id: Float!
   customerName: String!
   appointmentTime: DateTime!
   salon: Salon!

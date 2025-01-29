@@ -1,10 +1,10 @@
-import { Field, ObjectType, ID } from '@nestjs/graphql';
+import { Field, ObjectType } from '@nestjs/graphql';
 import { Salon } from '../../salons/models/salon.model';
 import { Service } from '../../services/models/service.model';
 
 @ObjectType()
 export class Appointment {
-  @Field(() => ID)
+  @Field(() => Number)
   id: number;
 
   @Field(() => String)

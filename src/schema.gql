@@ -35,6 +35,7 @@ type Query {
 
 type Mutation {
   createAppointment(createAppointmentInput: CreateAppointmentInput!): Appointment!
+  updateAppointment(updateAppointmentInput: UpdateAppointmentInput!): Appointment!
   createService(createServiceInput: CreateServiceInput!): Service!
   createSalon(createSalonInput: CreateSalonInput!): Salon!
 }
@@ -44,6 +45,14 @@ input CreateAppointmentInput {
   appointmentTime: DateTime!
   salonId: Float!
   serviceId: Float!
+}
+
+input UpdateAppointmentInput {
+  id: Float!
+  customerName: String
+  appointmentTime: String
+  salonId: Float
+  serviceId: Float
 }
 
 input CreateServiceInput {

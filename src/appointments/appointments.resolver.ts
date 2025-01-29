@@ -2,6 +2,7 @@ import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { Appointment } from './models/appointment.model';
 import { AppointmentsService } from './appointments.service';
 import { CreateAppointmentInput } from './dto/create-appointment.input';
+import { UpdateAppointmentInput } from './dto/update-appointment.input';
 
 @Resolver(() => Appointment)
 export class AppointmentsResolver {
@@ -23,5 +24,13 @@ export class AppointmentsResolver {
     createAppointmentInput: CreateAppointmentInput,
   ): Promise<Appointment> {
     return this.appointmentsService.createAppointment(createAppointmentInput);
+  }
+
+  @Mutation(() => Appointment)
+  async updateAppointment(
+    @Args('updateAppointmentInput')
+    updateAppointmentInput: UpdateAppointmentInput,
+  ): Promise<Appointment> {
+    return this.appointmentsService.updateAppointment(updateAppointmentInput);
   }
 }

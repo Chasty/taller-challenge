@@ -7,6 +7,7 @@ import { ServicesService } from 'src/services/services.service';
 
 import { IsInt, IsString, IsDateString } from 'class-validator';
 import { CreateAppointmentInput } from './dto/create-appointment.input';
+import { UpdateAppointmentInput } from './dto/update-appointment.input';
 
 export class CreateAppointmentDto {
   @IsInt()
@@ -83,5 +84,55 @@ export class AppointmentsService {
       where: { id },
       relations: ['salon', 'salon.services'],
     });
+  }
+
+  async updateAppointment(
+    updateAppointmentInput: UpdateAppointmentInput,
+  ): Promise<Appointment> {
+    const appointment = await this.appointmentsRepository.findOne({
+      where: { id: updateAppointmentInput.id },
+    });
+
+    if (!appointment) {
+      throw new NotFoundException(
+        `Appointment with ID ${updateAppointmentInput.id} not found`,
+      );
+    }
+
+    if (updateAppointmentInput.salonId) {
+      const salon = await this.salonsService.findById(
+        updateAppointmentInput.salonId,
+      );
+      if (!salon) {
+        throw new NotFoundException(
+          `Salon with ID ${updateAppointmentInput.salonId} not found`,
+        );
+      }
+      appointment.salon = salon;
+    }
+
+    if (updateAppointmentInput.serviceId) {
+      const service = await this.servicesService.findById(
+        updateAppointmentInput.serviceId,
+      );
+      if (!service) {
+        throw new NotFoundException(
+          `Service with ID ${updateAppointmentInput.serviceId} not found`,
+        );
+      }
+      appointment.service = service;
+    }
+
+    if (updateAppointmentInput.customerName) {
+      appointment.customerName = updateAppointmentInput.customerName;
+    }
+
+    if (updateAppointmentInput.appointmentTime) {
+      appointment.appointmentTime = new Date(
+        updateAppointmentInput.appointmentTime,
+      );
+    }
+
+    return this.appointmentsRepository.save(appointment);
   }
 }

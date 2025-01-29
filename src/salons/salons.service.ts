@@ -42,20 +42,6 @@ export class SalonsService {
 
     const savedSalon = await this.salonsRepository.save(salon);
 
-    if (salonData.services && salonData.services.length > 0) {
-      const serviceIds = salonData.services.map((service) => service.id);
-      await this.servicesService.validateServices(serviceIds);
-
-      await Promise.all(
-        serviceIds.map((serviceId) =>
-          this.servicesService.createService({
-            id: serviceId,
-            salonId: savedSalon.id,
-          }),
-        ),
-      );
-    }
-
     return this.findById(savedSalon.id);
   }
 }

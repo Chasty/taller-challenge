@@ -6,11 +6,11 @@ export class CreateAppointmentInput {
   customerName: string;
 
   @Field()
-  serviceName: string;
-
-  @Field()
   appointmentTime: Date;
 
   @Field()
   salonId: number;
+
+  @Field()
+  serviceId: number;
 }

@@ -1,5 +1,12 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  JoinColumn,
+} from 'typeorm';
 import { Salon } from '../../salons/entities/salon.entity';
+import { Service } from '../../services/entities/service.entity';
 
 @Entity('appointments')
 export class Appointment {
@@ -9,15 +16,20 @@ export class Appointment {
   @Column()
   customerName: string;
 
-  @Column()
-  serviceName: string;
-
   @Column('timestamp')
   appointmentTime: Date;
 
-  @ManyToOne(() => Salon, (salon) => salon.appointments)
-  salon: Salon;
-
   @Column()
   salonId: number;
+
+  @Column()
+  serviceId: number;
+
+  @ManyToOne(() => Salon)
+  @JoinColumn({ name: 'salonId' })
+  salon: Salon;
+
+  @ManyToOne(() => Service)
+  @JoinColumn({ name: 'serviceId' })
+  service: Service;
 }

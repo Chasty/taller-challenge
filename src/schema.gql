@@ -8,12 +8,18 @@ type Salon {
   location: String!
 }
 
+type Service {
+  id: ID!
+  name: String!
+  price: Float!
+}
+
 type Appointment {
   id: ID!
   customerName: String!
-  serviceName: String!
   appointmentTime: DateTime!
-  salonId: Float!
+  salon: Salon!
+  service: Service!
 }
 
 """
@@ -22,18 +28,27 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 scalar DateTime
 
 type Query {
+  appointments: [Appointment!]!
+  appointment(id: Float!): Appointment!
   getSalons: [Salon!]!
 }
 
 type Mutation {
   createAppointment(createAppointmentInput: CreateAppointmentInput!): Appointment!
+  createService(createServiceInput: CreateServiceInput!): Service!
   createSalon(createSalonInput: CreateSalonInput!): Salon!
 }
 
 input CreateAppointmentInput {
   customerName: String!
-  serviceName: String!
   appointmentTime: DateTime!
+  salonId: Float!
+  serviceId: Float!
+}
+
+input CreateServiceInput {
+  name: String!
+  price: Float!
   salonId: Float!
 }
 

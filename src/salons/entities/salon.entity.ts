@@ -7,13 +7,13 @@ export class Salon {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ length: 255 })
   name: string;
 
-  @Column()
+  @Column('text')
   location: string;
 
-  @OneToMany(() => Service, (service) => service.salon)
+  @OneToMany(() => Service, (service) => service.salon, { cascade: true })
   services: Service[];
 
   @OneToMany(() => Appointment, (appointment) => appointment.salon)

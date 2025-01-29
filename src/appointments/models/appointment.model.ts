@@ -1,4 +1,6 @@
 import { Field, ObjectType, ID } from '@nestjs/graphql';
+import { Salon } from '../../salons/models/salon.model';
+import { Service } from '../../services/models/service.model';
 
 @ObjectType()
 export class Appointment {
@@ -8,12 +10,12 @@ export class Appointment {
   @Field(() => String)
   customerName: string;
 
-  @Field(() => String)
-  serviceName: string;
-
   @Field(() => Date)
   appointmentTime: Date;
 
-  @Field()
-  salonId: number;
+  @Field(() => Salon)
+  salon: Salon;
+
+  @Field(() => Service)
+  service: Service;
 }
